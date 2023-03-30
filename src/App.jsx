@@ -1,43 +1,28 @@
-import React, { useState } from "react";
-import CreateNote from "./CreateNote";
-import Footer from "./Footer";
-import Header from "./Header";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./Home";
+import Contact from "./Contact";
+import Service from "./Service";
+import About from "./About";
+import NavBar from "./Navbar";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Note from "./Note";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import Footer from "./Footer";
 
-export default function App() {
-  const [addItem, setAddItem] = useState([]);
-  const addNote = (note) => {
-    // alert("Note created");
-    // console.log(note);
-    setAddItem((prevData) => {
-      return [...prevData, note];
-    });
-
-    // console.log(...addItem);
-  };
-
-  const deleteItem = (del_id) => {
-    // console.log("Item deleted", del_id);
-
-    setAddItem((prevData) => {
-      return prevData.filter((val, index) => {
-        return index !== del_id;
-      });
-    });
-  };
-
+const App = () => {
   return (
     <>
-      <Header />
-      <CreateNote getNote={addNote} />
-      <div className="container-fluid flex-wrap d-flex">
-        {addItem.map((val, index) => {
-          return <Note key={index} id={index} {...val} delete={deleteItem} />;
-        })}
-        ;
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
       <Footer />
     </>
   );
-}
+};
+
+export default App;
