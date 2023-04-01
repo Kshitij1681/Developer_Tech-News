@@ -1,13 +1,9 @@
 import React from "react";
-import TempApp from "./TempApp";
+import Todo from "./Todo";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
-  return (
-    <>
-      <TempApp />
-    </>
-  );
+  return <Todo />;
 };
 
 export default App;
