@@ -1,9 +1,19 @@
 import React from "react";
-import Todo from "./Todo";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Search from "./Search";
+import Pagination from "./Pagination";
+import Stories from "./Stories";
 
 const App = () => {
-  return <Todo />;
+  return (
+    <>
+      <div>
+        <h1>Tech News On The Go</h1>
+        <Search />
+        <Pagination />
+        <Stories />
+      </div>
+    </>
+  );
 };
 
 export default App;
